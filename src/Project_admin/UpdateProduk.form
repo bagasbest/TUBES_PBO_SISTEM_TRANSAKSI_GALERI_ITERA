@@ -216,9 +216,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Pictures\Bagas Pangestu\update-button-icon-png-7.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value=" UPDATE PRODUK"/>
           </Properties>
           <Events>
@@ -227,9 +224,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Pictures\Bagas Pangestu\previous-512.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="BACK"/>
           </Properties>
           <Events>

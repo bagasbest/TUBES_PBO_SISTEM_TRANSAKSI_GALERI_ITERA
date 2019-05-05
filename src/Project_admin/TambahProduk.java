@@ -6,23 +6,54 @@
 package Project_admin;
 
 import Koneksi.koneksi;
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author user
  */
 public class TambahProduk extends javax.swing.JFrame {
-
+    String idproduk, nama;
+    int stok, harga;
     /**
      * Creates new form TambahProduk
      */
     public TambahProduk() {
         initComponents();
+    }
+    
+    public void loadData(){
+        idproduk = idpr.getText();
+        nama = nmpr.getText();
+        stok = Integer.parseInt(jmpr.getText());
+        harga = Integer.parseInt(hgpr.getText());
+    }
+    
+    public void saveData(){
+        loadData();
+        
+        koneksi kon = new koneksi();
+        kon.getData();
+        
+        try{
+            Statement stat = (Statement) kon.getData().createStatement();
+            String sql = "Insert into produk (id_produk,nama_produk,jumlah_stok,harga)"
+                    + "values ('"
+                    + idproduk + "','"
+                    + nama + "','"
+                    + stok + "','"
+                    + harga + "')";
+            PreparedStatement p = (PreparedStatement) kon.getData().prepareStatement(sql);
+            p.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Tambah produk berhasil!");
+        }catch(SQLException err){
+            JOptionPane.showMessageDialog(null, err.getMessage());
+        }
     }
 
     /**
@@ -71,10 +102,14 @@ public class TambahProduk extends javax.swing.JFrame {
         jLabel4.setText("NAMA PRODUK");
 
         idpr.setText("contoh : P002");
+        idpr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idprActionPerformed(evt);
+            }
+        });
 
         nmpr.setText("contoh : Ciki");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\Bagas Pangestu\\Button-Add-1-512.png")); // NOI18N
         jButton1.setText("TAMBAH PRODUK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +124,6 @@ public class TambahProduk extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\Bagas Pangestu\\previous-512.png")); // NOI18N
         jButton4.setText("BACK");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,9 +288,7 @@ public class TambahProduk extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+        saveData();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -279,6 +311,10 @@ public class TambahProduk extends javax.swing.JFrame {
     private void hgprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hgprActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_hgprActionPerformed
+
+    private void idprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idprActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idprActionPerformed
 
     /**
      * @param args the command line arguments

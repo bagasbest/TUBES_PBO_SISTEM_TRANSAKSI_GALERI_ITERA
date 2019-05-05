@@ -205,6 +205,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="contoh : P002"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idprActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="nmpr">
               <Properties>
@@ -213,9 +216,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\user\Pictures\Bagas Pangestu\Button-Add-1-512.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="TAMBAH PRODUK"/>
               </Properties>
               <Events>
@@ -232,9 +232,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\user\Pictures\Bagas Pangestu\previous-512.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="BACK"/>
               </Properties>
               <Events>

@@ -100,7 +100,6 @@ public class UpdateProduk extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\Bagas Pangestu\\update-button-icon-png-7.png")); // NOI18N
         jButton4.setText(" UPDATE PRODUK");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +107,6 @@ public class UpdateProduk extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\Bagas Pangestu\\previous-512.png")); // NOI18N
         jButton5.setText("BACK");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -7,7 +7,8 @@ package Project_login;
 
 import Koneksi.koneksi;
 import java.sql.*;
-import Project_admin.AdminUI;
+import Project_admin.*;
+
 import com.sun.glass.events.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -147,6 +148,11 @@ public class LoginAdmin extends javax.swing.JFrame {
                 
                 AdminUI AUI = new AdminUI();
                 AUI.setVisible(true);
+                //agar ketika menampilkan fungsi cek produk tidak terjadi double tampilan
+                CekProduk CP = new CekProduk();
+                //agar ketika menampilkan fungsi Tambah Produks tidak terjadi double tampilan
+                TambahProduk TP = new TambahProduk();
+                
             }else{
                 JOptionPane.showMessageDialog(null, "USERNAME/PASSWORD Salah!");
                 id.setText("");

@@ -22,7 +22,7 @@ import javax.swing.JFormattedTextField;
  *
  * @author Windows 10
  */
-public class transaksi extends javax.swing.JFrame {
+public final class transaksi extends javax.swing.JFrame {
     String idtrans, idkasir, idproduk, tanggal;
     int stok;
     
@@ -31,6 +31,7 @@ public class transaksi extends javax.swing.JFrame {
      */
     public transaksi() {
         initComponents();
+        time();
     }
     
     public void time(){

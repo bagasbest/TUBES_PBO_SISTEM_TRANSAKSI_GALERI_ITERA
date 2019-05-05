@@ -7,6 +7,7 @@ package Transaksi;
 
 import Koneksi.koneksi;
 import Project_admin.AdminUI;
+import static java.lang.String.format;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,7 +24,8 @@ import javax.swing.JFormattedTextField;
  * @author Windows 10
  */
 public final class transaksi extends javax.swing.JFrame {
-    String idtrans, idkasir, idproduk, tanggal;
+    String idtrans, idkasir, idproduk;
+    Date tanggal;
     int stok;
     
     /**
@@ -47,18 +49,16 @@ public final class transaksi extends javax.swing.JFrame {
         idkasir = b.getText();
         idproduk = c.getText();
         stok = Integer.parseInt(d.getText());
-        tanggal = e.getText();
     }
     
     public void saveData(){
-        time();
         loadData();
         
         koneksi con = new koneksi();
         
         try{
             Statement stat = (Statement) con.getData();
-            String sql = "Insert into transaksi (id_transaksi, id_admin, id_produk, jumlah_beli)"
+            String sql = "Insert into transaksi (id_transaksi, id_admin, id_produk, jumlah_beli, Tgl_transaksi)"
                     + "values ('"
                     + idtrans + "','"
                     + idkasir + "','"
@@ -94,7 +94,7 @@ public final class transaksi extends javax.swing.JFrame {
         beli = new javax.swing.JButton();
         back = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        e = new javax.swing.JLabel();
+        e = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,7 +154,7 @@ public final class transaksi extends javax.swing.JFrame {
                             .addComponent(c, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(d, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(a, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(e, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(e))
                         .addGap(68, 68, 68))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(back)
@@ -183,11 +183,11 @@ public final class transaksi extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(e, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                    .addComponent(e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(beli)
                     .addComponent(back)))
@@ -253,7 +253,7 @@ public final class transaksi extends javax.swing.JFrame {
     private javax.swing.JButton beli;
     private javax.swing.JTextField c;
     private javax.swing.JTextField d;
-    private javax.swing.JLabel e;
+    private javax.swing.JTextField e;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

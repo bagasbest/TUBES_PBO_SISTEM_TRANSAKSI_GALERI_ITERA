@@ -136,8 +136,7 @@ public class LoginAdmin extends javax.swing.JFrame {
         
         try {
             Statement stat = (Statement)kon.getData().createStatement();
-            String sql = "select * from akun where id = '" + id.getText() +
-                   "' and password = '" + pw.getText() + "'";
+            String sql = "select * from akun where id = '" + id.getText() + "' and password = '" + pw.getText() + "'";
             
             ResultSet rs = stat.executeQuery(sql);
             rs.next();

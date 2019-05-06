@@ -6,6 +6,7 @@
 package Project_admin;
 import javax.swing.*;
 import Project_login.LoginAdmin;
+import Transaksi.transaksi;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,6 +50,11 @@ public class AdminUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("TRANSAKSI");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("CEK PRODUK");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +84,6 @@ public class AdminUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("SELAMAT DATANG NAMA!");
 
-        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\Bagas Pangestu\\161904PM.jpg")); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -199,6 +204,13 @@ public class AdminUI extends javax.swing.JFrame {
         UpdateProduk UP = new UpdateProduk();
         UP.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        transaksi trans = new transaksi();
+        trans.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

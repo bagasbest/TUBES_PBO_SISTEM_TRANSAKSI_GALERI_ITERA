@@ -6,6 +6,7 @@
 package Project_admin;
 
 import Koneksi.koneksi;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -100,7 +101,6 @@ public class UpdateProduk extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\Bagas Pangestu\\update-button-icon-png-7.png")); // NOI18N
         jButton4.setText(" UPDATE PRODUK");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,6 @@ public class UpdateProduk extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\Bagas Pangestu\\previous-512.png")); // NOI18N
         jButton5.setText("BACK");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +215,7 @@ public class UpdateProduk extends javax.swing.JFrame {
         kon.getData();
         
         try {
+            
             Statement stat = (Statement) kon.getData().createStatement();
             String sql = "select * from produk WHERE id_produk = '" + upr.getText() + "'";
             
@@ -225,11 +225,11 @@ public class UpdateProduk extends javax.swing.JFrame {
             
             if (rs.getRow() == 1){
                 sql = "update produk set jumlah_stok = jumlah_stok + " + ustok.getText() + " where id_produk = '" + upr.getText() + "'";
+                PreparedStatement p = (PreparedStatement) kon.getData().prepareStatement(sql);
+                p.executeUpdate();
                 
-                 
-            rs.next();
-            rs.last();
-               
+              
+                
                 upr.setText("");
                 ustok.setText("");
                 
@@ -293,5 +293,5 @@ public class UpdateProduk extends javax.swing.JFrame {
     private javax.swing.JTextField ustok;
     // End of variables declaration//GEN-END:variables
 
-    
+     
 }

@@ -78,6 +78,11 @@ public class AdminUI extends javax.swing.JFrame {
         });
 
         jButton5.setText("HAPUS PRODUK");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(0, 181, 204));
 
@@ -211,6 +216,18 @@ public class AdminUI extends javax.swing.JFrame {
         transaksi trans = new transaksi();
         trans.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        HapusProduk HP = null;
+        try {
+            HP = new HapusProduk();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        HP.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

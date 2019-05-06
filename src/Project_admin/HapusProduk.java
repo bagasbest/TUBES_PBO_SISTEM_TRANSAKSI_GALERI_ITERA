@@ -6,6 +6,7 @@
 package Project_admin;
 
 import Koneksi.koneksi;
+import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,7 +50,7 @@ public final class HapusProduk extends javax.swing.JFrame {
                 String sql = "DELETE FROM produk where id_produk = '" + id + "'";
                 PreparedStatement p = (PreparedStatement) kon.getData().prepareStatement(sql);
                 p.executeUpdate();
-                kon.getData();
+                getDatabaseProduk();
                 Reset();
                 JOptionPane.showMessageDialog(null, "Delete berhasil");
             }catch(SQLException er){
@@ -119,15 +120,20 @@ public final class HapusProduk extends javax.swing.JFrame {
         cek = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
+        warna = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 181, 204));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("HAPUS PRODUK GALERI ITERA");
         jLabel1.setMaximumSize(new java.awt.Dimension(300, 29));
         jLabel1.setMinimumSize(new java.awt.Dimension(300, 29));
         jLabel1.setPreferredSize(new java.awt.Dimension(300, 29));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 26, 341, -1));
+        getContentPane().add(idproduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 119, 212, -1));
 
         jButton1.setText("Hapus");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +141,7 @@ public final class HapusProduk extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 118, -1, -1));
 
         produk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,14 +156,18 @@ public final class HapusProduk extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(produk);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 204, -1, 160));
+
         cek.setText("Cek Produk");
         cek.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cekActionPerformed(evt);
             }
         });
+        getContentPane().add(cek, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 147, -1, -1));
 
         jLabel2.setText("ID Produk");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 122, -1, -1));
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -164,54 +175,18 @@ public final class HapusProduk extends javax.swing.JFrame {
                 backActionPerformed(evt);
             }
         });
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 356, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(back)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(jLabel2)
-                        .addGap(85, 85, 85)
-                        .addComponent(idproduk, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cek)
-                            .addComponent(jButton1))))
-                .addContainerGap(138, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idproduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addComponent(cek)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(144, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(back)
-                        .addGap(129, 129, 129))))
-        );
+        warna.setText("Change Colour");
+        warna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                warnaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(warna, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 175, 134, -1));
+
+        jLabel3.setText("           ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 72, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -243,6 +218,11 @@ public final class HapusProduk extends javax.swing.JFrame {
         AdminUI AUI = new AdminUI();
         AUI.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
+
+    private void warnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warnaActionPerformed
+        // TODO add your handling code here:
+        this.getContentPane().setBackground(Color.BLUE);
+    }//GEN-LAST:event_warnaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,8 +268,10 @@ public final class HapusProduk extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable produk;
+    private javax.swing.JButton warna;
     // End of variables declaration//GEN-END:variables
 
  

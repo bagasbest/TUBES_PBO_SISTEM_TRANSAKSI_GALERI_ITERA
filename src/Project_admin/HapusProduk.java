@@ -35,7 +35,6 @@ public final class HapusProduk extends javax.swing.JFrame {
     }
     
     public void delData() throws SQLException{
-        initComponents();
         loadData();
         
         koneksi kon = new koneksi();
@@ -47,10 +46,10 @@ public final class HapusProduk extends javax.swing.JFrame {
         if (pesan == JOptionPane.OK_OPTION){
             try{
                 Statement stat = (Statement) kon.getData().createStatement();
-                String sql = "DELETE FROM produk where id_produk = '" + id + "'";
+                String sql = "DELETE FROM produk where id_produk = '" + id + "';";
                 PreparedStatement p = (PreparedStatement) kon.getData().prepareStatement(sql);
                 p.executeUpdate();
-                getDatabaseProduk();
+                kon.getData();
                 Reset();
                 JOptionPane.showMessageDialog(null, "Delete berhasil");
             }catch(SQLException er){
@@ -62,7 +61,8 @@ public final class HapusProduk extends javax.swing.JFrame {
     
     public HapusProduk() throws SQLException {
         initComponents();
-        
+        this.getContentPane().setBackground(Color.GREEN);
+
           //memberi penamaan pada judul kolom produk
         model2 = new DefaultTableModel();
         produk.setModel(model2);
@@ -120,7 +120,6 @@ public final class HapusProduk extends javax.swing.JFrame {
         cek = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
-        warna = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -177,14 +176,6 @@ public final class HapusProduk extends javax.swing.JFrame {
         });
         getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 356, -1, -1));
 
-        warna.setText("Change Colour");
-        warna.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                warnaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(warna, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 175, 134, -1));
-
         jLabel3.setText("           ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 72, -1, -1));
 
@@ -192,6 +183,7 @@ public final class HapusProduk extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         try {
             // TODO add your handling code here:
             delData();
@@ -218,11 +210,6 @@ public final class HapusProduk extends javax.swing.JFrame {
         AdminUI AUI = new AdminUI();
         AUI.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
-
-    private void warnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warnaActionPerformed
-        // TODO add your handling code here:
-        this.getContentPane().setBackground(Color.BLUE);
-    }//GEN-LAST:event_warnaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,7 +258,6 @@ public final class HapusProduk extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable produk;
-    private javax.swing.JButton warna;
     // End of variables declaration//GEN-END:variables
 
  

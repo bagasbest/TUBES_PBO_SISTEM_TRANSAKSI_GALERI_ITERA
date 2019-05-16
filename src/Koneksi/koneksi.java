@@ -27,18 +27,4 @@ public class koneksi {
         
         return con;
     }
-    
-    public ResultSet cariProduk(Connection con, String nama){
-        
-        String sql= "select * from produk where nama_produk='" + nama +"';";
-        try {
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            return rs;
-        } catch (SQLException ex) {
-            Logger.getLogger(KoneksiCari.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return null;
-    }
 }

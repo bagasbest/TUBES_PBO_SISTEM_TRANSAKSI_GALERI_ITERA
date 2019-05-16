@@ -207,14 +207,6 @@ public class AdminUI extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        dispose();
-        HapusProduk HP = null;
-        try {
-            HP = new HapusProduk();
-        } catch (SQLException ex) {
-            Logger.getLogger(AdminUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        HP.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -232,6 +224,7 @@ public class AdminUI extends javax.swing.JFrame {
             //false condition
         }
     }//GEN-LAST:event_jButton7ActionPerformed
+
 
     /**
      * @param args the command line arguments

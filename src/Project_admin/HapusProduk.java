@@ -229,6 +229,13 @@ public final class HapusProduk extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(HapusProduk.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            delData(this.idproduk.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(HapusProduk.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cekActionPerformed

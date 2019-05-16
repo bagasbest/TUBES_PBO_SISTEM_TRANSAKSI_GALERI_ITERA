@@ -6,6 +6,7 @@
 package Project_admin;
 
 import Koneksi.koneksi;
+import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,14 +34,14 @@ public final class HapusProduk extends javax.swing.JFrame {
         idproduk.setText(id);
     }
     
-    public void delData() throws SQLException{
+    public void delData(String id) throws SQLException{
         initComponents();
-        loadData();
+       // loadData();
         
         koneksi kon = new koneksi();
         kon.getData();
         
-        int pesan = JOptionPane.showConfirmDialog(null, "Anda yakin menghapus data" + id + "?", "Konfirmasi",
+        int pesan = JOptionPane.showConfirmDialog(null, "Anda yakin menghapus data " + id + "?", "Konfirmasi",
                     JOptionPane.OK_CANCEL_OPTION);
         
         if (pesan == JOptionPane.OK_OPTION){
@@ -49,7 +50,10 @@ public final class HapusProduk extends javax.swing.JFrame {
                 String sql = "DELETE FROM produk where id_produk = '" + id + "'";
                 PreparedStatement p = (PreparedStatement) kon.getData().prepareStatement(sql);
                 p.executeUpdate();
-                kon.getData();
+                
+                getDatabaseProduk();
+                
+                //kon.getData();
                 Reset();
                 JOptionPane.showMessageDialog(null, "Delete berhasil");
             }catch(SQLException er){
@@ -61,6 +65,7 @@ public final class HapusProduk extends javax.swing.JFrame {
     
     public HapusProduk() throws SQLException {
         initComponents();
+        this.getContentPane().setBackground(Color.pink);
         
           //memberi penamaan pada judul kolom produk
         model2 = new DefaultTableModel();
@@ -129,7 +134,8 @@ public final class HapusProduk extends javax.swing.JFrame {
         jLabel1.setMinimumSize(new java.awt.Dimension(300, 29));
         jLabel1.setPreferredSize(new java.awt.Dimension(300, 29));
 
-        jButton1.setText("Hapus");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/47-512.png"))); // NOI18N
+        jButton1.setText("HAPUS");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -158,6 +164,7 @@ public final class HapusProduk extends javax.swing.JFrame {
 
         jLabel2.setText("ID Produk");
 
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/previous-512.png"))); // NOI18N
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,9 +179,7 @@ public final class HapusProduk extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(back)
-                        .addGap(18, 18, 18)
+                        .addGap(159, 159, 159)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(242, 242, 242)
@@ -185,10 +190,13 @@ public final class HapusProduk extends javax.swing.JFrame {
                         .addGap(85, 85, 85)
                         .addComponent(idproduk, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cek)
-                            .addComponent(jButton1))))
-                .addContainerGap(138, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cek, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(back)))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,24 +210,22 @@ public final class HapusProduk extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(cek)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(144, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(back)
-                        .addGap(129, 129, 129))))
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(back)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
-            delData();
+            delData(this.idproduk.getText());
+            
         } catch (SQLException ex) {
             Logger.getLogger(HapusProduk.class.getName()).log(Level.SEVERE, null, ex);
         }

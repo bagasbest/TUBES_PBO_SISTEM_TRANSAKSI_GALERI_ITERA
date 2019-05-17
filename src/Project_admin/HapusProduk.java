@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -40,7 +41,7 @@ public final class HapusProduk extends javax.swing.JFrame {
         koneksi kon = new koneksi();
         kon.getData();
         
-        int pesan = JOptionPane.showConfirmDialog(null, "Anda yakin menghapus data" + id + "?", "Konfirmasi",
+        int pesan = JOptionPane.showConfirmDialog(null, "Anda yakin menghapus data " + id + "?", "Konfirmasi",
                     JOptionPane.OK_CANCEL_OPTION);
         
         if (pesan == JOptionPane.OK_OPTION){
@@ -61,7 +62,12 @@ public final class HapusProduk extends javax.swing.JFrame {
     
     public HapusProduk() throws SQLException {
         initComponents();
-        this.getContentPane().setBackground(Color.GREEN);
+        
+        setExtendedState(JFrame.MAXIMIZED_HORIZ);
+        setVisible(true);
+        setResizable(false);
+        
+        
 
           //memberi penamaan pada judul kolom produk
         model2 = new DefaultTableModel();
@@ -112,26 +118,25 @@ public final class HapusProduk extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         idproduk = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         produk = new javax.swing.JTable();
         cek = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new Panel.PanelGambar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 181, 204));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("HAPUS PRODUK GALERI ITERA");
-        jLabel1.setMaximumSize(new java.awt.Dimension(300, 29));
-        jLabel1.setMinimumSize(new java.awt.Dimension(300, 29));
-        jLabel1.setPreferredSize(new java.awt.Dimension(300, 29));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 341, -1));
+        idproduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idprodukActionPerformed(evt);
+            }
+        });
         getContentPane().add(idproduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 212, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/47-512.png"))); // NOI18N
@@ -171,9 +176,6 @@ public final class HapusProduk extends javax.swing.JFrame {
         });
         getContentPane().add(cek, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 100, 30));
 
-        jLabel2.setText("ID Produk");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
-
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/previous-512.png"))); // NOI18N
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -183,8 +185,17 @@ public final class HapusProduk extends javax.swing.JFrame {
         });
         getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 100, -1));
 
-        jLabel3.setText("           ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 72, -1, -1));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 10));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("HAPUS PRODUK GALERI ");
+        jLabel1.setMaximumSize(new java.awt.Dimension(300, 29));
+        jLabel1.setMinimumSize(new java.awt.Dimension(300, 29));
+        jLabel1.setPreferredSize(new java.awt.Dimension(300, 29));
+        jPanel1.add(jLabel1);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 60));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 720, 450));
 
         pack();
         setLocationRelativeTo(null);
@@ -225,6 +236,10 @@ public final class HapusProduk extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_produkMouseClicked
+
+    private void idprodukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idprodukActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idprodukActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,8 +284,8 @@ public final class HapusProduk extends javax.swing.JFrame {
     private javax.swing.JTextField idproduk;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable produk;
     // End of variables declaration//GEN-END:variables

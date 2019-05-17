@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
  *
@@ -27,6 +28,10 @@ public final class CekProduk extends javax.swing.JFrame {
     
     public CekProduk() throws SQLException {
         initComponents();
+        
+        setExtendedState(JFrame.MAXIMIZED_HORIZ);
+        setVisible(true);
+        setResizable(false);
         
         //memberi penamaan pada judul kolom produk
         model = new DefaultTableModel();

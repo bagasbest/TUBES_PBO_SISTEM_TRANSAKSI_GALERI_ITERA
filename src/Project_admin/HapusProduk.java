@@ -131,16 +131,17 @@ public final class HapusProduk extends javax.swing.JFrame {
         jLabel1.setMaximumSize(new java.awt.Dimension(300, 29));
         jLabel1.setMinimumSize(new java.awt.Dimension(300, 29));
         jLabel1.setPreferredSize(new java.awt.Dimension(300, 29));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 26, 341, -1));
-        getContentPane().add(idproduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 119, 212, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 341, -1));
+        getContentPane().add(idproduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 212, -1));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/47-512.png"))); // NOI18N
         jButton1.setText("Hapus");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 118, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, -1, -1));
 
         produk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -160,7 +161,7 @@ public final class HapusProduk extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(produk);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 204, -1, 160));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 490, 160));
 
         cek.setText("Cek Produk");
         cek.addActionListener(new java.awt.event.ActionListener() {
@@ -168,23 +169,25 @@ public final class HapusProduk extends javax.swing.JFrame {
                 cekActionPerformed(evt);
             }
         });
-        getContentPane().add(cek, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 147, -1, -1));
+        getContentPane().add(cek, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 100, 30));
 
         jLabel2.setText("ID Produk");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 122, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/previous-512.png"))); // NOI18N
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
             }
         });
-        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 356, -1, -1));
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 100, -1));
 
         jLabel3.setText("           ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 72, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -192,9 +195,11 @@ public final class HapusProduk extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             delData();
+            getDatabaseProduk();
         } catch (SQLException ex) {
             Logger.getLogger(HapusProduk.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cekActionPerformed
